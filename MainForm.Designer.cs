@@ -1,14 +1,14 @@
 ﻿namespace MetaDataStringEditor {
     partial class MainForm {
         /// <summary>
-        /// 必需的设计器变量。
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清理所有正在使用的资源。
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing) {
             if (disposing && (components != null)) {
                 components.Dispose();
@@ -16,19 +16,19 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.加载ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.另存为ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关闭文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CloseFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -42,7 +42,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -52,35 +52,35 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.加载ToolStripMenuItem,
-            this.另存为ToolStripMenuItem,
-            this.关闭文件ToolStripMenuItem});
+            this.LoadToolStripMenuItem,
+            this.SaveAsToolStripMenuItem,
+            this.CloseFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // 加载ToolStripMenuItem
+            // LoadToolStripMenuItem
             // 
-            this.加载ToolStripMenuItem.Name = "加载ToolStripMenuItem";
-            this.加载ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.加载ToolStripMenuItem.Text = "加载";
-            this.加载ToolStripMenuItem.Click += new System.EventHandler(this.加载ToolStripMenuItem_Click);
+            this.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem";
+            this.LoadToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.LoadToolStripMenuItem.Text = "Load";
+            this.LoadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItem_Click);
             // 
-            // 另存为ToolStripMenuItem
+            // SaveAsToolStripMenuItem
             // 
-            this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.另存为ToolStripMenuItem.Text = "另存为";
-            this.另存为ToolStripMenuItem.Click += new System.EventHandler(this.另存为ToolStripMenuItem_Click);
+            this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.SaveAsToolStripMenuItem.Text = "Save As";
+            this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
-            // 关闭文件ToolStripMenuItem
+            // CloseFileToolStripMenuItem
             // 
-            this.关闭文件ToolStripMenuItem.Name = "关闭文件ToolStripMenuItem";
-            this.关闭文件ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.关闭文件ToolStripMenuItem.Text = "关闭文件";
-            this.关闭文件ToolStripMenuItem.Click += new System.EventHandler(this.关闭文件ToolStripMenuItem_Click);
+            this.CloseFileToolStripMenuItem.Name = "CloseFileToolStripMenuItem";
+            this.CloseFileToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.CloseFileToolStripMenuItem.Text = "Close File";
+            this.CloseFileToolStripMenuItem.Click += new System.EventHandler(this.CloseFileToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -102,7 +102,7 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(58, 17);
-            this.toolStripStatusLabel1.Text = "Log 区域";
+            this.toolStripStatusLabel1.Text = "Log Area";
             // 
             // listView1
             // 
@@ -126,17 +126,17 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "原字符串";
+            this.columnHeader1.Text = "Original String";
             this.columnHeader1.Width = 152;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "新字符串";
+            this.columnHeader2.Text = "New String";
             this.columnHeader2.Width = 127;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "是否修改";
+            this.columnHeader3.Text = "Modified";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 148;
             // 
@@ -166,14 +166,14 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 22);
             this.button1.TabIndex = 0;
-            this.button1.Text = "下一个";
+            this.button1.Text = "Next";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "global-metadata.dat";
-            this.openFileDialog1.Filter = "global-metadata.dat|global-metadata.dat|所有文件|*.*";
+            this.openFileDialog1.Filter = "global-metadata.dat|global-metadata.dat|All Files|*.*";
             // 
             // saveFileDialog1
             // 
@@ -182,16 +182,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.编辑ToolStripMenuItem});
+            this.EditToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
             // 
-            // 编辑ToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.编辑ToolStripMenuItem.Text = "编辑";
-            this.编辑ToolStripMenuItem.Click += new System.EventHandler(this.编辑ToolStripMenuItem_Click);
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.EditToolStripMenuItem.Text = "Edit";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -221,9 +221,9 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 加载ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 另存为ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关闭文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LoadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CloseFileToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -237,7 +237,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
     }
 }
 
