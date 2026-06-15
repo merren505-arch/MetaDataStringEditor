@@ -1,0 +1,81 @@
+name: Build Executable
+
+on:
+  push:
+    branches: [ "master", "main" ]
+    tags:
+      - 'v*' # Triggers when a version tag is pushed (e.g., v1.0.0)
+  pull_request:
+    branches: [ "master", "main" ]
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+permissions:
+  contents: write # Required for creating a GitHub Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v2
+
+    - name: Restore NuGet Packages
+      shell: pwsh
+      run: |
+        # Check if there is a solution file first; fallback to .csproj if not.
+        $solution = Get-ChildItem -Recurse -Filter *.sln | Select-Object -First 1 -ExpandProperty FullName
+        if ($solution) {
+          nuget restore "$solution"
+        } else {
+          $project = Get-ChildItem -Recurse -Filter *.csproj | Select-Object -First 1 -ExpandProperty FullName
+          if ($project) {
+            nuget restore "$project"
+          }
+        }
+
+    - name: Build Application
+      shell: pwsh
+      run: |
+        # Dynamically locate the .csproj file to build
+        $project = Get-ChildItem -Recurse -Filter *.csproj | Select-Object -First 1 -ExpandProperty FullName
+        if (-not $project) {
+          Write-Error "No .csproj file found!"
+          exit 1
+        }
+        msbuild "$project" -p:Configuration=Release -p:Platform="AnyCPU"
+
+    - name: Stage Executable
+      shell: pwsh
+      run: |
+        # Locate the compiled .exe inside the bin\Release directory
+        $exePath = Get-ChildItem -Recurse -Filter *.exe | Where-Object { $_.FullName -like "*bin\Release*" } | Select-Object -First 1 -ExpandProperty FullName
+        if (-not $exePath) {
+          Write-Error "Compiled executable not found in bin/Release!"
+          exit 1
+        }
+        
+        # Create artifacts folder and copy the executable
+        New-Item -ItemType Directory -Force -Path .\artifacts
+        Copy-Item "$exePath" -Destination .\artifacts\
+        Write-Output "Successfully staged: $exePath"
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MetaDataStringEditor-Build
+        path: artifacts/
+
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: artifacts/*.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
